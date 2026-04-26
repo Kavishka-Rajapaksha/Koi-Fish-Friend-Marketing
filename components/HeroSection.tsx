@@ -92,7 +92,7 @@ export function HeroSection() {
                   const Icon = device.icon;
                   return (
                     <div key={device.title} className="rounded-lg border border-white/20 bg-white/78 p-3 shadow-lg shadow-slate-950/10 backdrop-blur">
-                      <Icon className="mb-2 text-cyan-200" size={20} />
+                      <Icon className="mb-2 text-cyan-700" size={20} />
                       <p className="text-sm font-bold text-slate-950">{device.title}</p>
                     </div>
                   );

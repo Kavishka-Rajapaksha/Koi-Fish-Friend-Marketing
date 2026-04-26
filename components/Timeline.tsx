@@ -18,13 +18,13 @@ export function Timeline() {
             className={`relative grid gap-4 pl-14 md:grid-cols-2 md:pl-0 ${index % 2 ? "md:text-left" : "md:text-right"}`}
           >
             <div className={index % 2 ? "md:col-start-2 md:pl-12" : "md:pr-12"}>
-              <div className="rounded-lg border border-white/10 bg-white/[0.06] p-5 backdrop-blur-xl">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">{item.status}</p>
-                <h3 className="mt-2 text-xl font-black text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-300">{item.date}</p>
+              <div className="rounded-lg border border-cyan-900/10 bg-white/78 p-5 shadow-xl shadow-cyan-950/10 backdrop-blur-xl">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-600">{item.status}</p>
+                <h3 className="mt-2 text-xl font-black text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{item.date}</p>
               </div>
             </div>
-            <span className="absolute left-0 top-5 grid size-10 place-items-center rounded-full border border-cyan-300/40 bg-slate-950 text-cyan-200 md:left-1/2 md:-translate-x-1/2">
+            <span className="absolute left-0 top-5 grid size-10 place-items-center rounded-full border border-cyan-300/50 bg-white text-cyan-700 shadow-lg shadow-cyan-950/10 md:left-1/2 md:-translate-x-1/2">
               <CalendarCheck size={19} />
             </span>
           </motion.div>

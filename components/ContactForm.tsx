@@ -13,8 +13,8 @@ export function ContactForm() {
           <Mail size={22} />
         </span>
         <div>
-          <h3 className="text-xl font-black text-white">Project Inquiry</h3>
-          <p className="text-sm text-slate-400">koi.fish.friend.research@example.com</p>
+          <h3 className="text-xl font-black text-slate-950">Project Inquiry</h3>
+          <p className="text-sm text-slate-500">koi.fish.friend.research@example.com</p>
         </div>
       </div>
       <form className="grid gap-4">

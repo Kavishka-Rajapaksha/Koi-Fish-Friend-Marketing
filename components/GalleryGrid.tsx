@@ -22,7 +22,7 @@ export function GalleryGrid() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.04 }}
             onClick={() => setLightbox(item)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 text-left"
+            className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10"
           >
             <Image src={item.src} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 25vw, 50vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-90" />
@@ -35,7 +35,7 @@ export function GalleryGrid() {
           <button
             key={item.src}
             onClick={() => setVideo(item)}
-            className="group relative aspect-video overflow-hidden rounded-lg border border-cyan-300/20 bg-slate-900 text-left"
+            className="group relative aspect-video overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10"
           >
             <video src={item.src} className="h-full w-full object-cover opacity-70" muted playsInline />
             <div className="absolute inset-0 grid place-items-center bg-slate-950/30">
