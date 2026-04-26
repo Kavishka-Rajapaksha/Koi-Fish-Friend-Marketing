@@ -7,37 +7,84 @@ import { AnimatePresence, motion } from "framer-motion";
 import { galleryImages, galleryVideos } from "@/data/site";
 import { Button } from "@/components/ui/button";
 
-export function GalleryGrid() {
-  const [lightbox, setLightbox] = useState<(typeof galleryImages)[number] | null>(null);
-  const [video, setVideo] = useState<(typeof galleryVideos)[number] | null>(null);
+export type GalleryImage = {
+  src: string;
+  title: string;
+};
+
+export type GalleryVideo = {
+  src: string;
+  title: string;
+};
+
+type GalleryGridProps = {
+  images?: GalleryImage[];
+  videos?: GalleryVideo[];
+};
+
+const aspectClasses = [
+  "aspect-[4/3]",
+  "aspect-[3/4]",
+  "aspect-square",
+  "aspect-[5/4]",
+  "aspect-[4/5]",
+  "aspect-video",
+];
+
+export function GalleryGrid({ images = galleryImages, videos = galleryVideos }: GalleryGridProps) {
+  const [lightbox, setLightbox] = useState<GalleryImage | null>(null);
+  const [video, setVideo] = useState<GalleryVideo | null>(null);
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {galleryImages.map((item, index) => (
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {[
+          ["Images", images.length],
+          ["Videos", videos.length],
+          ["Field Tests", "Live"],
+          ["Lightbox", "Ready"],
+        ].map(([label, value]) => (
+          <div key={label} className="rounded-lg border border-cyan-900/10 bg-white/75 p-4 shadow-lg shadow-cyan-950/5 backdrop-blur-xl">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-600">{label}</p>
+            <p className="mt-1 text-2xl font-black text-slate-950">{value}</p>
+          </div>
+        ))}
+      </motion.div>
+
+      <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
+        {images.map((item, index) => (
           <motion.button
             key={item.src}
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.04 }}
+            whileHover={{ y: -6, scale: 1.01 }}
+            transition={{ delay: Math.min(index * 0.025, 0.35), duration: 0.45 }}
             onClick={() => setLightbox(item)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10"
+            className={`group relative mb-4 w-full overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10 ${aspectClasses[index % aspectClasses.length]}`}
           >
             <Image src={item.src} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 25vw, 50vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-90" />
+            <div className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-xs font-black text-cyan-700 shadow-lg backdrop-blur">
+              {String(index + 1).padStart(2, "0")}
+            </div>
             <p className="absolute bottom-4 left-4 right-4 text-sm font-black text-white">{item.title}</p>
           </motion.button>
         ))}
       </div>
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
-        {galleryVideos.map((item) => (
+
+      <div className="mt-10 grid gap-4 md:grid-cols-2">
+        {videos.map((item) => (
           <button
             key={item.src}
             onClick={() => setVideo(item)}
             className="group relative aspect-video overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10"
           >
-            <video src={item.src} className="h-full w-full object-cover opacity-70" muted playsInline />
+            <video src={item.src} className="h-full w-full object-cover opacity-70" muted playsInline preload="metadata" />
             <div className="absolute inset-0 grid place-items-center bg-slate-950/30">
               <span className="grid size-16 place-items-center rounded-full bg-cyan-300 text-slate-950 transition group-hover:scale-110">
                 <Play fill="currentColor" />
@@ -69,7 +116,7 @@ export function VideoModal({
   video,
   onClose,
 }: {
-  video: (typeof galleryVideos)[number];
+  video: GalleryVideo;
   onClose: () => void;
 }) {
   return (
