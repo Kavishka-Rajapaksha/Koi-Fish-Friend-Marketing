@@ -47,7 +47,7 @@ export const stats = [
 export const devices = [
   {
     title: "Smart Floating Device",
-    image: "/images/floating-device-close.jpg",
+    image: "/images/floating device.png",
     icon: Waves,
     description:
       "Solar-powered floating platform for pond navigation, live camera monitoring, sensor readings, and remote movement control.",
@@ -57,7 +57,7 @@ export const devices = [
   },
   {
     title: "Automated Feeding Device",
-    image: "/images/feeding-device-1.jpg",
+    image: "/images/feeding device.png",
     icon: Bot,
     description:
       "Solar-powered feeder with a hopper, rotating dispensing mechanism, scheduling, load-cell measurement, and feed event logs.",
@@ -67,7 +67,7 @@ export const devices = [
   },
   {
     title: "Power Management Device",
-    image: "/images/power-management-device.jpg",
+    image: "/images/Power Contol.png",
     icon: BatteryCharging,
     description:
       "Safe power control unit for solar and battery-backed aquaculture devices with voltage, current, and energy monitoring.",
@@ -77,7 +77,7 @@ export const devices = [
   },
   {
     title: "Web Dashboard / Control Panel",
-    image: "/images/dashboard-navigation.jpg",
+    image: "/images/dashboard.png",
     icon: Gauge,
     description:
       "Farmer and admin dashboard for camera monitoring, navigation controls, fish count, water quality, feeding, budgets, AI predictions, and alerts.",
@@ -208,10 +208,14 @@ export const documents = [
 ];
 
 export const slides = [
-  { title: "Proposal Presentation", href: "/documents/website-planning.pdf" },
-  { title: "Progress Presentation 1", href: "/documents/website-planning.pdf" },
-  { title: "Progress Presentation 2", href: "/documents/website-planning.pdf" },
-  { title: "Final Presentation", href: "/documents/website-planning.pdf" },
+  { title: "Proposal Presentation", href: "/documents/Proposal%20Presentation.pdf" },
+  { title: "Progress Presentation 1", href: "/documents/Progress%20Presentation%201.pdf" },
+  { title: "Progress Presentation 2", href: "/documents/Progress%20Presentation%202.pdf" },
+  {
+    title: "Final Presentation",
+    href: "#",
+    unavailableMessage: "Final Presentation is not yet completed.",
+  },
 ];
 
 export const teamMembers = [

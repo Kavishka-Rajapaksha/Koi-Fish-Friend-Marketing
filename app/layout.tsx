@@ -43,7 +43,21 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-white text-slate-900">{children}</body>
+      <body className="relative min-h-full text-slate-900">
+        {/* Fixed background video — stays in place while page scrolls */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 -z-10 h-full w-full object-cover"
+          style={{ opacity: 0.18 }}
+        >
+          <source src="/videos/backgroundvideo.mp4" type="video/mp4" />
+        </video>
+        {children}
+      </body>
     </html>
   );
 }

@@ -119,7 +119,14 @@ export default function Home() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {slides.map((slide) => (
-            <DocumentCard key={slide.title} title={slide.title} href={slide.href} type="Slides" slide />
+            <DocumentCard
+              key={slide.title}
+              title={slide.title}
+              href={slide.href}
+              type="Slides"
+              slide
+              unavailableMessage={slide.unavailableMessage}
+            />
           ))}
         </div>
       </section>

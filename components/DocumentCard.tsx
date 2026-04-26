@@ -10,13 +10,24 @@ export function DocumentCard({
   href,
   type = "PDF",
   slide = false,
+  unavailableMessage,
 }: {
   title: string;
   href: string;
   type?: string;
   slide?: boolean;
+  unavailableMessage?: string;
 }) {
   const Icon = slide ? Presentation : FileText;
+
+  const handleUnavailable = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!unavailableMessage) {
+      return;
+    }
+
+    event.preventDefault();
+    window.alert(unavailableMessage);
+  };
 
   return (
     <motion.div
@@ -34,12 +45,12 @@ export function DocumentCard({
           <h3 className="mt-2 text-lg font-black text-slate-950">{title}</h3>
         </div>
         <div className="mt-6 grid gap-2 sm:grid-cols-2">
-          <a href={href} target="_blank" rel="noreferrer">
+          <a href={href} target={unavailableMessage ? undefined : "_blank"} rel={unavailableMessage ? undefined : "noreferrer"} onClick={handleUnavailable}>
             <Button variant="outline" className="w-full">
               View <Eye size={17} />
             </Button>
           </a>
-          <a href={href} download>
+          <a href={href} download={unavailableMessage ? undefined : true} onClick={handleUnavailable}>
             <Button className="w-full">
               Download <Download size={17} />
             </Button>
