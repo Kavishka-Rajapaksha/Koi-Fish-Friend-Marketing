@@ -58,7 +58,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
+    <main className="animated-white-bg min-h-screen overflow-hidden text-slate-900">
       <Navbar />
       <HeroSection />
 
@@ -72,11 +72,11 @@ export default function Home() {
           {domainSections.map((section, index) => (
             <motion.div key={section.title} {...fadeUp} transition={{ duration: 0.55, delay: index * 0.04 }}>
               <Card className="h-full p-6">
-                <p className="mb-3 text-xs font-black uppercase tracking-[0.24em] text-cyan-300">
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.24em] text-cyan-600">
                   0{index + 1}
                 </p>
-                <h3 className="text-xl font-black text-white">{section.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{section.body}</p>
+                <h3 className="text-xl font-black text-slate-950">{section.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{section.body}</p>
               </Card>
             </motion.div>
           ))}
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="devices" className="section-shell bg-cyan-950/20">
+      <section id="devices" className="section-shell bg-cyan-50/60">
         <SectionHeader
           eyebrow="Devices"
           title="Solar Devices Built for Real Pond Work"
@@ -120,18 +120,18 @@ export default function Home() {
           </motion.div>
           <motion.div {...fadeUp} className="grid gap-3 sm:grid-cols-2">
             {dashboardFeatures.map(([label, Icon]) => (
-              <div key={label} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-4 backdrop-blur">
-                <span className="grid size-10 place-items-center rounded-lg bg-cyan-300/15 text-cyan-200">
+              <div key={label} className="flex items-center gap-3 rounded-lg border border-cyan-900/10 bg-white/75 p-4 shadow-lg shadow-cyan-950/5 backdrop-blur">
+                <span className="grid size-10 place-items-center rounded-lg bg-cyan-100 text-cyan-700">
                   <Icon size={20} />
                 </span>
-                <p className="text-sm font-bold text-slate-100">{label}</p>
+                <p className="text-sm font-bold text-slate-800">{label}</p>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section id="gallery" className="section-shell bg-emerald-950/15">
+      <section id="gallery" className="section-shell bg-emerald-50/60">
         <SectionHeader
           eyebrow="Gallery"
           title="Prototype Images and Field Demo Videos"
@@ -149,7 +149,7 @@ export default function Home() {
         <Timeline />
       </section>
 
-      <section id="documents" className="section-shell bg-cyan-950/20">
+      <section id="documents" className="section-shell bg-cyan-50/60">
         <SectionHeader
           eyebrow="Documents"
           title="Research Documents and Reports"
@@ -175,7 +175,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="section-shell bg-emerald-950/15">
+      <section id="about" className="section-shell bg-emerald-50/60">
         <SectionHeader
           eyebrow="About Us"
           title="Research Team"
@@ -201,13 +201,13 @@ export default function Home() {
           <Card className="p-6">
             <div className="grid gap-4">
               {inquiryItems.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="flex gap-4 rounded-lg border border-white/10 bg-slate-950/35 p-4">
+                <div key={title} className="flex gap-4 rounded-lg border border-cyan-900/10 bg-white/70 p-4 shadow-lg shadow-cyan-950/5">
                   <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-emerald-300 text-slate-950">
                     <Icon size={22} />
                   </span>
                   <div>
-                    <h3 className="font-black text-white">{title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-slate-300">{body}</p>
+                    <h3 className="font-black text-slate-950">{title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">{body}</p>
                   </div>
                 </div>
               ))}
@@ -223,18 +223,18 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_20%,rgba(103,232,249,.22),transparent_32%)]" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">
+                <p className="text-xs font-black uppercase tracking-[0.25em] text-cyan-600">
                   Professional Research Website
                 </p>
-                <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
+                <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">
                   Built to present a working IoT aquaculture system with polish and clarity.
                 </h2>
-                <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
                   KoiFishFriend connects floating navigation, feeding automation, water quality monitoring,
                   mortality alerts, energy analytics, and budgeting into a single elegant research showcase.
                 </p>
               </div>
-              <a href="#home" className="inline-flex items-center gap-2 text-sm font-black text-cyan-200 hover:text-emerald-200">
+              <a href="#home" className="inline-flex items-center gap-2 text-sm font-black text-cyan-700 hover:text-emerald-700">
                 Back to top <ArrowUpRight size={18} />
               </a>
             </div>

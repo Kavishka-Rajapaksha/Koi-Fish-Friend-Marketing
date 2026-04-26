@@ -40,19 +40,19 @@ export function DeviceCard({ device }: DeviceCardProps) {
           </div>
         </div>
         <div className="space-y-5 p-5">
-          <p className="text-sm leading-7 text-slate-300">{device.description}</p>
+          <p className="text-sm leading-7 text-slate-600">{device.description}</p>
           {[
             ["Features", device.features],
             ["Sensors", device.sensors],
             ["Benefits", device.benefits],
           ].map(([label, values]) => (
             <div key={label as string}>
-              <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-emerald-300">
+              <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-emerald-600">
                 {label as string}
               </p>
               <div className="flex flex-wrap gap-2">
                 {(values as string[]).map((value) => (
-                  <span key={value} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200">
+                  <span key={value} className="rounded-full border border-cyan-900/10 bg-cyan-50/80 px-3 py-1 text-xs font-medium text-slate-700">
                     {value}
                   </span>
                 ))}

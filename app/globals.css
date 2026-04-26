@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #f8fffd;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -26,6 +26,51 @@ html {
 ::selection {
   background: #67e8f9;
   color: #020617;
+}
+
+.animated-white-bg {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(34, 211, 238, 0.22), transparent 30rem),
+    radial-gradient(circle at 82% 12%, rgba(16, 185, 129, 0.18), transparent 28rem),
+    radial-gradient(circle at 50% 92%, rgba(45, 212, 191, 0.14), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f3fffb 44%, #ffffff 100%);
+}
+
+.animated-white-bg::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.animated-white-bg::after {
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle, rgba(103, 232, 249, 0.22), transparent 18rem) 10% 18% / 38rem 38rem no-repeat,
+    radial-gradient(circle, rgba(110, 231, 183, 0.2), transparent 16rem) 88% 30% / 34rem 34rem no-repeat,
+    radial-gradient(circle, rgba(45, 212, 191, 0.14), transparent 18rem) 50% 82% / 38rem 38rem no-repeat;
+  animation: float-background 18s ease-in-out infinite alternate;
+  filter: blur(6px);
+}
+
+@keyframes float-background {
+  from {
+    transform: translate3d(-1.5rem, -1rem, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(1.25rem, 1rem, 0) scale(1.04);
+  }
 }
 
 .section-shell {

@@ -27,8 +27,8 @@ export function ModuleCard({ module }: ModuleCardProps) {
         <div className="mb-5 grid size-12 place-items-center rounded-lg bg-emerald-300 text-slate-950">
           <Icon size={25} />
         </div>
-        <h3 className="text-xl font-black text-white">{module.title}</h3>
-        <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+        <h3 className="text-xl font-black text-slate-950">{module.title}</h3>
+        <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
           {module.points.map((point) => (
             <li key={point} className="flex gap-3">
               <span className="mt-2 size-1.5 shrink-0 rounded-full bg-cyan-300" />

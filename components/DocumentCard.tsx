@@ -30,8 +30,8 @@ export function DocumentCard({
           <div className="mb-5 grid size-12 place-items-center rounded-lg bg-cyan-300 text-slate-950">
             <Icon size={24} />
           </div>
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-300">{type}</p>
-          <h3 className="mt-2 text-lg font-black text-white">{title}</h3>
+          <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-600">{type}</p>
+          <h3 className="mt-2 text-lg font-black text-slate-950">{title}</h3>
         </div>
         <a href={href} download className="mt-6">
           <Button variant="outline" className="w-full">

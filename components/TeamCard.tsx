@@ -19,8 +19,8 @@ export function TeamCard({
         <div className="mx-auto grid size-16 place-items-center rounded-full bg-gradient-to-br from-cyan-300 to-emerald-300 text-slate-950">
           <Icon size={29} />
         </div>
-        <h3 className="mt-5 text-xl font-black text-white">{name}</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-300">{role}</p>
+        <h3 className="mt-5 text-xl font-black text-slate-950">{name}</h3>
+        <p className="mt-2 text-sm leading-6 text-slate-600">{role}</p>
       </Card>
     </motion.div>
   );

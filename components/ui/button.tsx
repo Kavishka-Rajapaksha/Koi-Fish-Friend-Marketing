@@ -10,8 +10,8 @@ const buttonVariants = cva(
         default:
           "bg-cyan-300 text-slate-950 shadow-[0_0_34px_rgba(103,232,249,0.35)] hover:bg-emerald-300",
         outline:
-          "border border-white/15 bg-white/5 text-white backdrop-blur-xl hover:border-cyan-300/70 hover:bg-cyan-300/10",
-        ghost: "text-slate-200 hover:bg-white/10 hover:text-white",
+          "border border-cyan-900/15 bg-white/70 text-slate-900 backdrop-blur-xl hover:border-cyan-400/70 hover:bg-cyan-50",
+        ghost: "text-slate-700 hover:bg-cyan-50 hover:text-slate-950",
         danger: "bg-rose-500 text-white hover:bg-rose-400",
       },
       size: {

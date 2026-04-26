@@ -10,8 +10,8 @@ import { Card } from "@/components/ui/card";
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden pt-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.24),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(16,185,129,.18),transparent_28%),linear-gradient(135deg,#020617_0%,#06202d_48%,#02140f_100%)]" />
-      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.28),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(16,185,129,.2),transparent_28%),linear-gradient(135deg,#ffffff_0%,#effdfa_48%,#ffffff_100%)]" />
+      <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(14,165,233,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,.08)_1px,transparent_1px)] [background-size:72px_72px]" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 36 }}
@@ -19,17 +19,17 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100 backdrop-blur">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-white/70 px-4 py-2 text-sm font-semibold text-cyan-800 shadow-lg shadow-cyan-950/5 backdrop-blur">
             <BadgeCheck size={16} />
             IoT-enabled aquaculture research platform
           </div>
-          <h1 className="text-5xl font-black leading-[0.98] text-white sm:text-7xl lg:text-8xl">
+          <h1 className="text-5xl font-black leading-[0.98] text-slate-950 sm:text-7xl lg:text-8xl">
             KoiFishFriend
           </h1>
-          <p className="mt-5 max-w-2xl text-xl font-semibold text-cyan-100 sm:text-2xl">
+          <p className="mt-5 max-w-2xl text-xl font-semibold text-cyan-800 sm:text-2xl">
             Smart IoT Aquaculture Management System
           </p>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
             Solar-powered floating monitoring, automated feeding, water quality analytics,
             mortality alerts, energy metering, budgeting, and remote dashboard control for
             small and medium fish farms.
@@ -53,10 +53,10 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="rounded-lg border border-white/10 bg-white/[0.06] p-4 backdrop-blur"
+                className="rounded-lg border border-cyan-900/10 bg-white/70 p-4 shadow-lg shadow-cyan-950/5 backdrop-blur"
               >
-                <div className="text-2xl font-black text-cyan-200">{stat.value}</div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                <div className="text-2xl font-black text-cyan-700">{stat.value}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
                   {stat.label}
                 </div>
               </motion.div>
@@ -91,9 +91,9 @@ export function HeroSection() {
                 {devices.slice(0, 3).map((device) => {
                   const Icon = device.icon;
                   return (
-                    <div key={device.title} className="rounded-lg border border-white/10 bg-slate-950/65 p-3 backdrop-blur">
+                    <div key={device.title} className="rounded-lg border border-white/20 bg-white/78 p-3 shadow-lg shadow-slate-950/10 backdrop-blur">
                       <Icon className="mb-2 text-cyan-200" size={20} />
-                      <p className="text-sm font-bold text-white">{device.title}</p>
+                      <p className="text-sm font-bold text-slate-950">{device.title}</p>
                     </div>
                   );
                 })}
@@ -103,7 +103,7 @@ export function HeroSection() {
           <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-3 -top-6 hidden rounded-lg border border-emerald-300/30 bg-emerald-300/10 p-4 text-emerald-100 backdrop-blur-xl sm:block"
+            className="absolute -right-3 -top-6 hidden rounded-lg border border-emerald-500/20 bg-white/78 p-4 text-emerald-700 shadow-xl shadow-emerald-950/10 backdrop-blur-xl sm:block"
           >
             <Radio size={22} />
             <p className="mt-2 text-sm font-bold">Remote Navigation</p>
@@ -111,7 +111,7 @@ export function HeroSection() {
           <motion.div
             animate={{ y: [10, -8, 10] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-7 left-8 hidden rounded-lg border border-rose-300/30 bg-rose-400/10 p-4 text-rose-100 backdrop-blur-xl sm:block"
+            className="absolute -bottom-7 left-8 hidden rounded-lg border border-rose-300/40 bg-white/78 p-4 text-rose-600 shadow-xl shadow-rose-950/10 backdrop-blur-xl sm:block"
           >
             <ShieldAlert size={22} />
             <p className="mt-2 text-sm font-bold">Emergency Stop</p>
