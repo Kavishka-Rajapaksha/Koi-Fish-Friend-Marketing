@@ -2,28 +2,22 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { AlertTriangle, ArrowUpRight, Cpu, Database, LayoutDashboard } from "lucide-react";
-import { ContactForm } from "@/components/ContactForm";
+import { ArrowUpRight } from "lucide-react";
 import { DeviceCard } from "@/components/DeviceCard";
 import { DocumentCard } from "@/components/DocumentCard";
 import { Footer } from "@/components/Footer";
-import { GalleryGrid } from "@/components/GalleryGrid";
 import { HeroSection } from "@/components/HeroSection";
 import { ModuleCard } from "@/components/ModuleCard";
 import { Navbar } from "@/components/Navbar";
 import { SectionHeader } from "@/components/SectionHeader";
-import { TeamCard } from "@/components/TeamCard";
 import { Timeline } from "@/components/Timeline";
 import { Card } from "@/components/ui/card";
 import {
   dashboardFeatures,
   devices,
-  documents,
   domainSections,
   researchModules,
   slides,
-  supervisor,
-  teamMembers,
 } from "@/data/site";
 
 const fadeUp = {
@@ -34,29 +28,6 @@ const fadeUp = {
 };
 
 export default function Home() {
-  const inquiryItems = [
-    {
-      icon: LayoutDashboard,
-      title: "Dashboard demo",
-      body: "Request a guided walkthrough of control panel features.",
-    },
-    {
-      icon: Database,
-      title: "Research material",
-      body: "Ask for project documents, reports, or presentation resources.",
-    },
-    {
-      icon: Cpu,
-      title: "Prototype inquiry",
-      body: "Discuss device modules, sensors, cloud alerts, or analytics.",
-    },
-    {
-      icon: AlertTriangle,
-      title: "Field testing",
-      body: "Plan safety-first pond testing and emergency control scenarios.",
-    },
-  ];
-
   return (
     <main className="animated-white-bg min-h-screen overflow-hidden text-slate-900">
       <Navbar />
@@ -131,15 +102,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="section-shell bg-emerald-50/60">
-        <SectionHeader
-          eyebrow="Gallery"
-          title="Prototype Images and Field Demo Videos"
-          description="Image gallery and modal video playback use the uploaded assets from the field tests and prototype build process."
-        />
-        <GalleryGrid />
-      </section>
-
       <section id="milestones" className="section-shell">
         <SectionHeader
           eyebrow="Milestones"
@@ -147,19 +109,6 @@ export default function Home() {
           description="A clean vertical timeline for proposal, progress presentations, final assessment, and viva milestones."
         />
         <Timeline />
-      </section>
-
-      <section id="documents" className="section-shell bg-cyan-50/60">
-        <SectionHeader
-          eyebrow="Documents"
-          title="Research Documents and Reports"
-          description="Download cards for project planning, core documents, checklists, final documents, and individual reports."
-        />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {documents.map((document) => (
-            <DocumentCard key={document.title} {...document} />
-          ))}
-        </div>
       </section>
 
       <section id="slides" className="section-shell">
@@ -172,48 +121,6 @@ export default function Home() {
           {slides.map((slide) => (
             <DocumentCard key={slide.title} title={slide.title} href={slide.href} type="Slides" slide />
           ))}
-        </div>
-      </section>
-
-      <section id="about" className="section-shell bg-emerald-50/60">
-        <SectionHeader
-          eyebrow="About Us"
-          title="Research Team"
-          description="The project combines device engineering, environmental monitoring, analytics, and dashboard design into one coordinated aquaculture platform."
-        />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {teamMembers.map((member) => (
-            <TeamCard key={member.name} {...member} />
-          ))}
-        </div>
-        <div className="mx-auto mt-5 max-w-md">
-          <TeamCard {...supervisor} />
-        </div>
-      </section>
-
-      <section id="contact" className="section-shell">
-        <SectionHeader
-          eyebrow="Contact Us"
-          title="Start a Project Conversation"
-          description="Use the inquiry UI for research questions, demonstrations, documentation requests, or collaboration discussions."
-        />
-        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-          <Card className="p-6">
-            <div className="grid gap-4">
-              {inquiryItems.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="flex gap-4 rounded-lg border border-cyan-900/10 bg-white/70 p-4 shadow-lg shadow-cyan-950/5">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-emerald-300 text-slate-950">
-                    <Icon size={22} />
-                  </span>
-                  <div>
-                    <h3 className="font-black text-slate-950">{title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <ContactForm />
         </div>
       </section>
 
