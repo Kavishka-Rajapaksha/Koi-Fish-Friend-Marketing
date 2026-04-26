@@ -197,14 +197,19 @@ export const milestones = [
 ];
 
 export const documents = [
-  { title: "Project Charter", href: "/documents/website-planning.pdf", type: "PDF" },
-  { title: "Proposal Document", href: "/documents/website-planning.pdf", type: "PDF" },
-  { title: "Checklist Documents", href: "/documents/website-planning.pdf", type: "PDF" },
-  { title: "Final Documents", href: "/documents/website-planning.pdf", type: "PDF" },
-  { title: "Individual Report - Abeysekara K S", href: "/documents/abeysekara-report.pdf", type: "PDF" },
-  { title: "Individual Report - Sewwandi C.I", href: "/documents/sewwandi-report.pdf", type: "PDF" },
-  { title: "Individual Report - Dilshan G H A C", href: "/documents/dilshan-report.pdf", type: "PDF" },
-  { title: "Individual Report - Rajapaksha R M K U", href: "/documents/rajapaksha-report.pdf", type: "PDF" },
+  { title: "Project Charter (TAF)", href: "/documents/TAF_25-26J-295.pdf", type: "PDF" },
+  { title: "Proposal Presentation", href: "/documents/Proposal%20Presentation.pdf", type: "PDF" },
+  { title: "Proposal Document - Rajapaksha R M K U", href: "/documents/proposal_IT22565358_RajapakshaRMKU.pdf", type: "PDF" },
+  { title: "Proposal Document - Dilshan G H A C", href: "/documents/proposal_IT22581334_DilshanG_H_A_C.pdf", type: "PDF" },
+  { title: "Proposal Document - Abeysekara K S", href: "/documents/proposal_IT22605634_AbeysekaraK.S.pdf", type: "PDF" },
+  { title: "Proposal Document - Sewwandi C I", href: "/documents/proposal_IT22609526_Sewwandi_C.I.pdf", type: "PDF" },
+  { title: "Progress Presentation 1", href: "/documents/Progress%20Presentation%201.pdf", type: "PDF" },
+  { title: "Progress Presentation 2", href: "/documents/Progress%20Presentation%202.pdf", type: "PDF" },
+  { title: "Checklist Document (PP1)", href: "/documents/25-26J-295-Checklist1-PP1.pdf", type: "PDF" },
+  { title: "Individual Report - Abeysekara K S", href: "/documents/IT22605634_AbeysekaraK_Done.pdf", type: "PDF" },
+  { title: "Individual Report - Sewwandi C I", href: "/documents/IT22609526_Sewwandi_C_done.pdf", type: "PDF" },
+  { title: "Individual Report - Dilshan G H A C", href: "/documents/IT22581334_DilshanG_H_A_C_done.pdf", type: "PDF" },
+  { title: "Individual Report - Rajapaksha R M K U", href: "/documents/IT22565358_RajapakshaRMKU_done.pdf", type: "PDF" },
 ];
 
 export const slides = [
@@ -223,28 +228,40 @@ export const teamMembers = [
     name: "Abeysekara K S",
     role: "Floating Feeding Device / Smart Floating Unit",
     icon: Waves,
+    image: "/images/kushan.jpeg",
   },
   {
     name: "Sewwandi C.I",
     role: "Fish Mortality Detection & Environmental Alerts",
     icon: Fish,
+    image: "/images/ishara.jpeg",
   },
   {
     name: "Dilshan G H A C",
     role: "Water Quality Monitoring & Maintenance Reminder",
     icon: Droplets,
+    image: "/images/charuka.jpeg",
   },
   {
     name: "Rajapaksha R M K U",
     role: "Energy, Budgeting & Analytics",
     icon: Zap,
+    image: "/images/kavishka.jpeg",
   },
 ];
 
 export const supervisor = {
-  name: "Mrs. Uthpala Samarakoon",
-  role: "Supervisor",
+  name: "Ms. Uthpala Samarakoon (Supervisor)",
+  role: "Uthpala Samarakoon is a Senior Lecturer in Information Technology.",
   icon: CalendarCheck,
+  image: "/images/uthpala.jpeg",
+};
+
+export const coSupervisor = {
+  name: "Nelum Chathuranga Amarasena (Co-supervisor)",
+  role: "Senior Lecturer, Sri Lanka Institute of Information Technology",
+  icon: CalendarCheck,
+  image: "/images/nelum.jpeg",
 };
 
 export const documentIcon = FileText;
