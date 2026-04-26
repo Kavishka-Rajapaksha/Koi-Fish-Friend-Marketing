@@ -11,17 +11,21 @@ export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden pt-28">
       <video
-        className="absolute inset-0 h-full w-full object-cover opacity-[0.16] mix-blend-multiply"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.35]"
         src="/videos/hero-background.mp4"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        poster="/images/pond-demo.jpg"
         aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.34),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(16,185,129,.24),transparent_28%),linear-gradient(135deg,rgba(255,255,255,.94)_0%,rgba(236,254,255,.88)_48%,rgba(255,255,255,.96)_100%)]" />
-      <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(rgba(14,165,233,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,.08)_1px,transparent_1px)] [background-size:72px_72px]" />
+      >
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.34),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(16,185,129,.22),transparent_28%),linear-gradient(135deg,rgba(255,255,255,.78)_0%,rgba(236,254,255,.7)_48%,rgba(255,255,255,.82)_100%)]" />
+      <div className="absolute inset-0 bg-cyan-50/25 mix-blend-screen" />
+      <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(14,165,233,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,.08)_1px,transparent_1px)] [background-size:72px_72px]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white to-transparent" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <motion.div
