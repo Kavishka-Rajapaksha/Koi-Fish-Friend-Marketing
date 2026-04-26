@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, Waves, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { navItems } from "@/data/site";
@@ -17,21 +18,21 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 border-b border-cyan-900/10 bg-white/78 shadow-lg shadow-cyan-950/5 backdrop-blur-2xl"
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <span className="grid size-10 place-items-center rounded-lg bg-cyan-300 text-slate-950 shadow-lg shadow-cyan-500/20">
             <Waves size={22} />
           </span>
           <span className="text-lg font-black text-slate-950">KoiFishFriend</span>
-        </a>
+        </Link>
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-cyan-50 hover:text-cyan-800"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
         <Button
@@ -53,14 +54,14 @@ export function Navbar() {
         <div className="overflow-hidden">
           <div className="mx-auto grid max-w-7xl gap-2 px-4 py-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-cyan-50"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

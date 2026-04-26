@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, FileText, Presentation } from "lucide-react";
+import { Download, Eye, FileText, Presentation } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -33,11 +33,18 @@ export function DocumentCard({
           <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-600">{type}</p>
           <h3 className="mt-2 text-lg font-black text-slate-950">{title}</h3>
         </div>
-        <a href={href} download className="mt-6">
-          <Button variant="outline" className="w-full">
-            Download <Download size={17} />
-          </Button>
-        </a>
+        <div className="mt-6 grid gap-2 sm:grid-cols-2">
+          <a href={href} target="_blank" rel="noreferrer">
+            <Button variant="outline" className="w-full">
+              View <Eye size={17} />
+            </Button>
+          </a>
+          <a href={href} download>
+            <Button className="w-full">
+              Download <Download size={17} />
+            </Button>
+          </a>
+        </div>
       </Card>
     </motion.div>
   );

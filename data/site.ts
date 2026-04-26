@@ -20,13 +20,14 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 export const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Domain", href: "#domain" },
-  { label: "Milestones", href: "#milestones" },
-  { label: "Documents", href: "#documents" },
-  { label: "Slides", href: "#slides" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Domain", href: "/#domain" },
+  { label: "Milestones", href: "/#milestones" },
+  { label: "Documents", href: "/documents" },
+  { label: "Slides", href: "/#slides" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const heroSlides = [
