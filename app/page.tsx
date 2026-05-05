@@ -224,6 +224,27 @@ export default function Home() {
 
       <section className="px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
+          <Card className="relative mb-6 overflow-hidden p-0">
+            <div className="border-b border-cyan-900/10 bg-white/80 px-6 py-4">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-600">
+                Client Review
+              </p>
+              <p className="mt-1 text-sm text-slate-500">
+                Video feedback and walkthrough from the client review session.
+              </p>
+            </div>
+            <div className="aspect-video w-full bg-white">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/ejLmxhETT-w"
+                title="Client Review"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </Card>
+
           <Card className="relative overflow-hidden p-8 sm:p-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_20%,rgba(103,232,249,.22),transparent_32%)]" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">

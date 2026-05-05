@@ -183,7 +183,11 @@ export const galleryImages = [
   { src: "/images/pond-demo.jpg", title: "Test Pond Environment" },
 ];
 
-export const galleryVideos = [
+export const galleryVideos: Array<{
+  src: string;
+  title: string;
+  kind?: "file" | "youtube";
+}> = [
   { src: "/videos/floating-demo.mp4", title: "Floating Device Demo" },
   { src: "/videos/pond-demo.mp4", title: "Pond Navigation Demo" },
 ];
@@ -212,6 +216,11 @@ export const documents = [
   { title: "Individual Report - Dilshan G H A C", href: "/documents/IT22581334_DilshanG%20H%20A%20C_done.pdf", type: "PDF" },
   { title: "Individual Report - Rajapaksha R M K U", href: "/documents/IT22565358_RajapakshaRMKU_done.pdf", type: "PDF" },
   { title: "Draft Final Report", href: "/documents/Final%20Report.pdf", type: "PDF" },
+  {
+    title: "Research Paper",
+    href: "/documents/Koi-Friend%20IoT-Enabled%20Aquaculture%20System%20with%20Feeding,%20Mortality%20Detection,%20Budgeting,%20Monitoring,%20and%20Alerts.pdf",
+    type: "PDF",
+  },
 ];
 
 export const slides = [
