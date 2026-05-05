@@ -19,13 +19,14 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 border-b border-cyan-900/10 bg-white/78 shadow-lg shadow-cyan-950/5 backdrop-blur-2xl"
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Image
-            src="/images/logo/logo.png"
-            alt="KoiFishFriend logo"
-            width={200}
-            height={100}
-            priority
-          />
+        <Image
+          src="/images/logo/logo.png"
+          alt="KoiFishFriend logo"
+          width={200}
+          height={100}
+          className="h-auto w-[180px] object-contain sm:w-[200px]"
+          priority
+        />
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <Link
