@@ -20,7 +20,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Image
-            src="/images/logo.png"
+            src="/images/logo/logo.png"
             alt="KoiFishFriend logo"
             width={200}
             height={100}

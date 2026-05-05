@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <Link href="/" className="block w-fit">
           <Image
-            src="/images/logo.png"
+            src="/images/logo/logo.png"
             alt="KoiFishFriend logo"
             width={280}
             height={80}
