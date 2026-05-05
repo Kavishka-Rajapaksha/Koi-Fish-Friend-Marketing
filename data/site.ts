@@ -47,7 +47,7 @@ export const stats = [
 export const devices = [
   {
     title: "Smart Floating Device",
-    image: "/images/floating device.png",
+    image: "/images/device images/floating_machine.jpeg",
     icon: Waves,
     description:
       "Solar-powered floating platform for pond navigation, live camera monitoring, sensor readings, and remote movement control.",
@@ -57,7 +57,7 @@ export const devices = [
   },
   {
     title: "Automated Feeding Device",
-    image: "/images/feeding device.png",
+    image: "/images/device images/feeding_device.jpeg",
     icon: Bot,
     description:
       "Solar-powered feeder with a hopper, rotating dispensing mechanism, scheduling, load-cell measurement, and feed event logs.",
@@ -67,7 +67,7 @@ export const devices = [
   },
   {
     title: "Power Management Device",
-    image: "/images/Power Contol.png",
+    image: "/images/device images/enegy_monitoring.jpeg",
     icon: BatteryCharging,
     description:
       "Safe power control unit for solar and battery-backed aquaculture devices with voltage, current, and energy monitoring.",
@@ -192,7 +192,7 @@ export const milestones = [
   { title: "Project Proposal", date: "Initial research scope", status: "Completed" },
   { title: "Progress Presentation 1", date: "Prototype architecture", status: "Completed" },
   { title: "Progress Presentation 2", date: "Integrated system testing", status: "Completed" },
-  { title: "Final Assessment", date: "Final website and documentation", status: "In Review" },
+  { title: "Final Assessment", date: "Final website and documentation", status: "Completed" },
   { title: "Viva", date: "Research defense", status: "Upcoming" },
 ];
 
@@ -200,16 +200,18 @@ export const documents = [
   { title: "Project Charter (TAF)", href: "/documents/TAF_25-26J-295.pdf", type: "PDF" },
   { title: "Proposal Presentation", href: "/documents/Proposal%20Presentation.pdf", type: "PDF" },
   { title: "Proposal Document - Rajapaksha R M K U", href: "/documents/proposal_IT22565358_RajapakshaRMKU.pdf", type: "PDF" },
-  { title: "Proposal Document - Dilshan G H A C", href: "/documents/proposal_IT22581334_DilshanG_H_A_C.pdf", type: "PDF" },
-  { title: "Proposal Document - Abeysekara K S", href: "/documents/proposal_IT22605634_AbeysekaraK.S.pdf", type: "PDF" },
-  { title: "Proposal Document - Sewwandi C I", href: "/documents/proposal_IT22609526_Sewwandi_C.I.pdf", type: "PDF" },
+  { title: "Proposal Document - Dilshan G H A C", href: "/documents/proposal_IT22581334_DilshanG%20H%20A%20C.pdf", type: "PDF" },
+  { title: "Proposal Document - Abeysekara K S", href: "/documents/proposal_IT22605634_%20AbeysekaraK.S.pdf", type: "PDF" },
+  { title: "Proposal Document - Sewwandi C I", href: "/documents/proposal_IT22609526_Sewwandi%20C.I.pdf", type: "PDF" },
   { title: "Progress Presentation 1", href: "/documents/Progress%20Presentation%201.pdf", type: "PDF" },
   { title: "Progress Presentation 2", href: "/documents/Progress%20Presentation%202.pdf", type: "PDF" },
   { title: "Checklist Document (PP1)", href: "/documents/25-26J-295-Checklist1-PP1.pdf", type: "PDF" },
-  { title: "Individual Report - Abeysekara K S", href: "/documents/IT22605634_AbeysekaraK_Done.pdf", type: "PDF" },
-  { title: "Individual Report - Sewwandi C I", href: "/documents/IT22609526_Sewwandi_C_done.pdf", type: "PDF" },
-  { title: "Individual Report - Dilshan G H A C", href: "/documents/IT22581334_DilshanG_H_A_C_done.pdf", type: "PDF" },
+  { title: "Checklist Document (PP2)", href: "/documents/25-26J-295-Checklist2.xlsx", type: "XLSX" },
+  { title: "Individual Report - Abeysekara K S", href: "/documents/IT22605634_%20AbeysekaraK_Done.pdf", type: "PDF" },
+  { title: "Individual Report - Sewwandi C I", href: "/documents/IT22609526_Sewwandi%20C_done.pdf", type: "PDF" },
+  { title: "Individual Report - Dilshan G H A C", href: "/documents/IT22581334_DilshanG%20H%20A%20C_done.pdf", type: "PDF" },
   { title: "Individual Report - Rajapaksha R M K U", href: "/documents/IT22565358_RajapakshaRMKU_done.pdf", type: "PDF" },
+  { title: "Draft Final Report", href: "/documents/Final%20Report.pdf", type: "PDF" },
 ];
 
 export const slides = [
@@ -226,42 +228,54 @@ export const slides = [
 export const teamMembers = [
   {
     name: "Abeysekara K S",
+    studentId: "IT22605634",
+    email: "it22605634@my.sliit.lk",
     role: "Floating Feeding Device / Smart Floating Unit",
     icon: Waves,
-    image: "/images/kushan.jpeg",
+    image: "/images/team/kushan.png",
   },
   {
     name: "Sewwandi C.I",
+    studentId: "IT22609526",
+    email: "it22609526@my.sliit.lk",
     role: "Fish Mortality Detection & Environmental Alerts",
     icon: Fish,
-    image: "/images/ishara.jpeg",
+    image: "/images/team/ishara.JPG",
   },
   {
     name: "Dilshan G H A C",
+    studentId: "IT22581334",
+    email: "it22581334@my.sliit.lk",
     role: "Water Quality Monitoring & Maintenance Reminder",
     icon: Droplets,
-    image: "/images/charuka.jpeg",
+    image: "/images/team/charuka.JPG",
   },
   {
     name: "Rajapaksha R M K U",
+    studentId: "IT22565358",
+    email: "it22565358@my.sliit.lk",
     role: "Energy, Budgeting & Analytics",
     icon: Zap,
-    image: "/images/kavishka.jpeg",
+    image: "/images/team/kavishka.JPG",
   },
 ];
 
 export const supervisor = {
-  name: "Ms. Uthpala Samarakoon (Supervisor)",
-  role: "Uthpala Samarakoon is a Senior Lecturer in Information Technology.",
+  name: "Ms. Uthpala Samarakoon",
+  badge: "Supervisor",
+  role: "Senior Lecturer, Sri Lanka Institute of Information Technology",
+  email: "uthpala.s@sliit.lk",
   icon: CalendarCheck,
-  image: "/images/uthpala.jpeg",
+  image: "/images/team/uthpala.jpeg",
 };
 
 export const coSupervisor = {
-  name: "Nelum Chathuranga Amarasena (Co-supervisor)",
+  name: "Nelum Chathuranga Amarasena",
+  badge: "Co-Supervisor",
   role: "Senior Lecturer, Sri Lanka Institute of Information Technology",
+  email: "nelum.a@sliit.lk",
   icon: CalendarCheck,
-  image: "/images/nelum.jpeg",
+  image: "/images/team/nelum.jpeg",
 };
 
 export const documentIcon = FileText;

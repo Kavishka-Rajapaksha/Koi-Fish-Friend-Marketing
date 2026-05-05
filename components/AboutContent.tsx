@@ -7,6 +7,9 @@ import { coSupervisor, supervisor, teamMembers } from "@/data/site";
 export function AboutContent() {
   return (
     <>
+      <p className="mb-6 text-center text-xs font-black uppercase tracking-[0.24em] text-cyan-600">
+        Sri Lanka Institute of Information Technology (SLIIT)
+      </p>
       <div className="mx-auto mb-6 grid max-w-3xl gap-4 sm:grid-cols-2">
         <TeamCard {...supervisor} />
         <TeamCard {...coSupervisor} />

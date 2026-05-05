@@ -37,23 +37,6 @@ export function GalleryGrid({ images = galleryImages, videos = galleryVideos }: 
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {[
-          ["Images", images.length],
-          ["Videos", videos.length],
-          ["Field Tests", "Live"],
-          ["Lightbox", "Ready"],
-        ].map(([label, value]) => (
-          <div key={label} className="rounded-lg border border-cyan-900/10 bg-white/75 p-4 shadow-lg shadow-cyan-950/5 backdrop-blur-xl">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-600">{label}</p>
-            <p className="mt-1 text-2xl font-black text-slate-950">{value}</p>
-          </div>
-        ))}
-      </motion.div>
 
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
         {images.map((item, index) => (
@@ -68,11 +51,7 @@ export function GalleryGrid({ images = galleryImages, videos = galleryVideos }: 
             className={`group relative mb-4 w-full overflow-hidden rounded-lg border border-cyan-900/10 bg-white text-left shadow-xl shadow-cyan-950/10 ${aspectClasses[index % aspectClasses.length]}`}
           >
             <Image src={item.src} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(min-width: 1024px) 25vw, 50vw" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-90" />
-            <div className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-xs font-black text-cyan-700 shadow-lg backdrop-blur">
-              {String(index + 1).padStart(2, "0")}
-            </div>
-            <p className="absolute bottom-4 left-4 right-4 text-sm font-black text-white">{item.title}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
           </motion.button>
         ))}
       </div>

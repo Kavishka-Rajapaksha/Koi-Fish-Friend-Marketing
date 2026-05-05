@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { DeviceCard } from "@/components/DeviceCard";
-import { DocumentCard } from "@/components/DocumentCard";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { ModuleCard } from "@/components/ModuleCard";
@@ -20,6 +20,12 @@ import {
   slides,
 } from "@/data/site";
 
+const deviceSlides = [
+  { src: "/images/device images/floating_machine.jpeg", label: "Smart Floating Device" },
+  { src: "/images/device images/feeding_device.jpeg", label: "Automated Feeding Device" },
+  { src: "/images/device images/enegy_monitoring.jpeg", label: "Power Management Device" },
+];
+
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -28,6 +34,14 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % deviceSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <main className="animated-white-bg min-h-screen overflow-hidden text-slate-900">
       <Navbar />
@@ -82,9 +96,35 @@ export default function Home() {
           <motion.div {...fadeUp}>
             <Card className="overflow-hidden p-3">
               <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
-                <Image src="/images/dashboard.jpg" alt="KoiFishFriend dashboard UI" fill className="object-cover" sizes="(min-width: 1024px) 58vw, 100vw" />
-                <div className="absolute left-4 top-4 rounded-full bg-emerald-400 px-3 py-1 text-xs font-black text-slate-950">
-                  LIVE CAMERA + CONTROLS
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={slideIndex}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={deviceSlides[slideIndex].src}
+                      alt={deviceSlides[slideIndex].label}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 58vw, 100vw"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+                <div className="absolute left-4 top-4 z-10 rounded-full bg-emerald-400 px-3 py-1 text-xs font-black text-slate-950">
+                  {deviceSlides[slideIndex].label.toUpperCase()}
+                </div>
+                <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+                  {deviceSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setSlideIndex(i)}
+                      className={`h-2 rounded-full transition-all ${i === slideIndex ? "w-6 bg-emerald-400" : "w-2 bg-white/60"}`}
+                    />
+                  ))}
                 </div>
               </div>
             </Card>
@@ -117,17 +157,68 @@ export default function Home() {
           title="Presentation Slide Decks"
           description="Proposal, progress, and final presentation resources for the university research review flow."
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {slides.map((slide) => (
-            <DocumentCard
-              key={slide.title}
-              title={slide.title}
-              href={slide.href}
-              type="Slides"
-              slide
-              unavailableMessage={slide.unavailableMessage}
-            />
-          ))}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {slides.map((slide, index) => {
+            const isUnavailable = !!slide.unavailableMessage;
+            const accentColors = [
+              "text-cyan-600",
+              "text-emerald-600",
+              "text-violet-600",
+              "text-rose-500",
+            ];
+            const bgColors = [
+              "bg-cyan-50 text-cyan-700",
+              "bg-emerald-50 text-emerald-700",
+              "bg-violet-50 text-violet-700",
+              "bg-rose-50 text-rose-600",
+            ];
+            const btnColors = [
+              "bg-cyan-500 hover:bg-cyan-600",
+              "bg-emerald-500 hover:bg-emerald-600",
+              "bg-violet-500 hover:bg-violet-600",
+              "bg-rose-500 hover:bg-rose-600",
+            ];
+            const labels = ["Proposal", "Progress 1", "Progress 2", "Final"];
+            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+              if (isUnavailable) { e.preventDefault(); window.alert(slide.unavailableMessage); }
+            };
+            return (
+              <motion.div
+                key={slide.title}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                whileHover={{ y: -5 }}
+              >
+                <Card className={`flex h-full flex-col justify-between p-5 ${isUnavailable ? "opacity-60" : ""}`}>
+                  <div>
+                    <div className={`mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-black ${bgColors[index]}`}>
+                      <span className="opacity-60">0{index + 1}</span>
+                      <span>{labels[index]}</span>
+                    </div>
+                    <p className={`text-xs font-black uppercase tracking-[0.24em] ${accentColors[index]}`}>Slides</p>
+                    <h3 className="mt-2 text-lg font-black text-slate-950">{slide.title}</h3>
+                    {isUnavailable && (
+                      <p className="mt-1 text-xs text-slate-400">Not yet available</p>
+                    )}
+                  </div>
+                  <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                    <a href={slide.href} target={isUnavailable ? undefined : "_blank"} rel={isUnavailable ? undefined : "noreferrer"} onClick={handleClick}>
+                      <button className="flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 py-2 text-xs font-bold text-slate-700 transition-colors hover:border-slate-400">
+                        View
+                      </button>
+                    </a>
+                    <a href={slide.href} download={isUnavailable ? undefined : true} onClick={handleClick}>
+                      <button className={`flex w-full items-center justify-center gap-1.5 rounded-full py-2 text-xs font-bold text-white transition-colors ${isUnavailable ? "bg-slate-300 cursor-not-allowed" : btnColors[index]}`}>
+                        Download
+                      </button>
+                    </a>
+                  </div>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 

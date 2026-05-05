@@ -1,13 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, BadgeCheck, Eye, Radio, ShieldAlert, Signal, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
-import { devices, heroSlides, stats } from "@/data/site";
+import { useEffect, useState } from "react";
+import { ArrowRight, BadgeCheck, Eye } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { stats } from "@/data/site";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+
+const deviceImages = [
+  { src: "/images/bg_remove_device/1.png", alt: "Smart Floating Device" },
+  { src: "/images/bg_remove_device/2.png", alt: "Automated Feeding Device" },
+  { src: "/images/bg_remove_device/3.png", alt: "Power Management Device" },
+];
 
 export function HeroSection() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent((p) => (p + 1) % deviceImages.length), 3500);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden pt-28">
       <video
@@ -27,7 +40,10 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-cyan-50/25 mix-blend-screen" />
       <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(14,165,233,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,.08)_1px,transparent_1px)] [background-size:72px_72px]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white to-transparent" />
+
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+
+        {/* ── Left text col ── */}
         <motion.div
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,87 +95,40 @@ export function HeroSection() {
           </div>
         </motion.div>
 
+        {/* ── Right image slider ── */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, rotateX: 8 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative lg:pl-6"
+          className="relative flex items-center justify-center lg:pl-6"
         >
-          <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-cyan-200/55 via-white/40 to-emerald-200/45 blur-2xl" />
-          <Card className="relative overflow-hidden border-white/70 bg-white/72 p-3 shadow-[0_28px_80px_rgba(8,145,178,0.2)]">
-            <div className="mb-3 flex items-center justify-between rounded-lg border border-cyan-900/10 bg-white/70 px-4 py-3">
-              <div className="flex items-center gap-2">
-                <span className="size-2.5 rounded-full bg-rose-400" />
-                <span className="size-2.5 rounded-full bg-amber-300" />
-                <span className="size-2.5 rounded-full bg-emerald-400" />
-              </div>
-              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-cyan-700">
-                <Signal size={15} />
-                Live Control View
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <div className="relative h-[580px] w-full max-w-[640px]">
+            <AnimatePresence mode="wait">
               <motion.div
-                className="flex h-full w-[400%]"
-                animate={{ x: ["0%", "-25%", "-50%", "-75%", "0%"] }}
-                transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+                key={current}
+                initial={{ opacity: 0, scale: 0.96, y: 18 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 1.02, y: -18 }}
+                transition={{ duration: 0.55 }}
+                className="absolute inset-0"
               >
-                {heroSlides.map((slide) => (
-                  <div key={slide.src} className="relative h-full w-1/4 shrink-0">
-                    <Image src={slide.src} alt={slide.alt} fill priority className="object-cover" sizes="(min-width: 1024px) 48vw, 100vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/5 to-transparent" />
-                  </div>
-                ))}
+                <Image
+                  src={deviceImages[current].src}
+                  alt={deviceImages[current].alt}
+                  fill
+                  priority
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                />
               </motion.div>
-              <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-emerald-300 px-3 py-1.5 text-xs font-black text-slate-950 shadow-lg shadow-emerald-950/10">
-                <span className="size-2 rounded-full bg-emerald-700" />
-                SYSTEM ONLINE
-              </div>
-              <div className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/82 px-3 py-1.5 text-xs font-black text-cyan-800 shadow-lg shadow-cyan-950/10 backdrop-blur">
-                <Sparkles size={14} />
-                AI READY
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 grid gap-3 sm:grid-cols-3">
-                {devices.slice(0, 3).map((device) => {
-                  const Icon = device.icon;
-                  return (
-                    <div
-                      key={device.title}
-                      className="rounded-lg border border-white/50 bg-white/86 p-3 shadow-lg shadow-slate-950/10 backdrop-blur-xl"
-                    >
-                      <Icon className="mb-2 text-cyan-700" size={20} />
-                      <p className="text-sm font-black leading-5 text-slate-950">{device.title}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="mt-3 grid gap-3 sm:grid-cols-3">
-              {["Camera live", "Solar charged", "Alerts active"].map((item) => (
-                <div key={item} className="rounded-lg border border-cyan-900/10 bg-cyan-50/70 px-3 py-2 text-xs font-bold text-slate-700">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </Card>
-          <motion.div
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-3 -top-6 hidden rounded-lg border border-emerald-500/20 bg-white/78 p-4 text-emerald-700 shadow-xl shadow-emerald-950/10 backdrop-blur-xl sm:block"
-          >
-            <Radio size={22} />
-            <p className="mt-2 text-sm font-bold">Remote Navigation</p>
-          </motion.div>
-          <motion.div
-            animate={{ y: [10, -8, 10] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-7 left-8 hidden rounded-lg border border-rose-300/40 bg-white/78 p-4 text-rose-600 shadow-xl shadow-rose-950/10 backdrop-blur-xl sm:block"
-          >
-            <ShieldAlert size={22} />
-            <p className="mt-2 text-sm font-bold">Emergency Stop</p>
-          </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
+
       </div>
     </section>
   );
 }
+
+
+

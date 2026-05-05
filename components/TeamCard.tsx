@@ -10,11 +10,17 @@ export function TeamCard({
   role,
   icon,
   image,
+  studentId,
+  email,
+  badge,
 }: {
   name: string;
   role: string;
   icon?: LucideIcon;
   image?: string;
+  studentId?: string;
+  email?: string;
+  badge?: string;
 }) {
   const Icon = icon;
 
@@ -36,8 +42,29 @@ export function TeamCard({
             <Icon size={29} />
           </div>
         ) : null}
-        <h3 className="mt-5 text-xl font-black text-slate-950">{name}</h3>
+
+        {badge && (
+          <span className="mt-4 inline-block rounded-full bg-cyan-100 px-3 py-0.5 text-xs font-black uppercase tracking-wide text-cyan-700">
+            {badge}
+          </span>
+        )}
+
+        <h3 className="mt-3 text-xl font-black text-slate-950">{name}</h3>
+
+        {studentId && (
+          <p className="mt-1 text-xs font-bold tracking-wide text-slate-400">{studentId}</p>
+        )}
+
         <p className="mt-2 text-sm leading-6 text-slate-600">{role}</p>
+
+        {email && (
+          <a
+            href={`mailto:${email}`}
+            className="mt-3 inline-block text-xs font-semibold text-cyan-600 hover:text-cyan-800 hover:underline"
+          >
+            {email}
+          </a>
+        )}
       </Card>
     </motion.div>
   );
